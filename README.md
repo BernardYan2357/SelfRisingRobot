@@ -1,48 +1,42 @@
 # SelfRisingRobot
 
-2軸サーボの起き上がりロボット "poco" です。
+复刻 https://github.com/homemadegarbage/SelfRisingRobot 的 SelfRisingRobot
 
-MuJoCo上で強化学習した起き上がり動作を、M5Atom搭載の実機ロボットで動かします。
+## 目录
 
-詳細記事:
+- `3Dmodel/` - 3D 打印模型
+- `RL/` - MuJoCo 模型、强化学习环境和训练好的 PPO 模型
+- `Arduino/` - M5Atom 用程序和导出的策略网络
 
-https://homemadegarbage.com/rl13
+各文件夹中的详细使用方法请参阅相应的 README
 
-## Contents
+## 3D 模型
 
-- `3Dmodel/` - 実機ロボット用の3Dプリントモデル
-- `RL/` - MuJoCoモデル、強化学習環境、学習済みPPOモデル
-- `Arduino/` - M5Atom用スケッチとエクスポート済みポリシーネットワーク
-
-各フォルダ内の詳しい使い方は、それぞれのREADMEを参照してください。
-
-## 3D Model
-
-`3Dmodel/` には実機製作用のSTLファイルを置いています。
+`3Dmodel/` 中包含用于制作实机的 STL 文件。
 
 - `footP.stl`
 - `arm1P.stl`
 - `arm2P.stl`
 - `armhornP.stl`
 
-## Reinforcement Learning
+## 强化学习
 
-`RL/` にはシミュレーションと学習済みモデルを置いています。
+`RL/` 中包含仿真环境和训练好的模型。
 
-主な内容:
+主要内容：
 
-- MuJoCoモデル
-- Gymnasium環境
-- Stable-Baselines3 PPOの学習済みモデル
-- 再生・評価スクリプト
+- MuJoCo 模型
+- Gymnasium 环境
+- Stable-Baselines3 PPO 训练好的模型
+- 回放和评估脚本
 
 ## Arduino
 
-`Arduino/` には実機制御用のM5Atomスケッチを置いています。
+`Arduino/` 中包含用于控制实机的 M5Atom 程序。
 
-主な内容:
+主要内容：
 
 - `robo03.ino`
 - `policy_network.h`
 
-`policy_network.h` は学習済みポリシーをCヘッダ化したもので、M5Atom上で起き上がり動作を実行するために使います。
+`policy_network.h` 是将训练好的策略转换为 C 头文件后的产物，用于在 M5Atom 上执行起身动作。
